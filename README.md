@@ -9,6 +9,7 @@
 To formulate a C program to convert a decimal number into its binary equivalent and display it.
 # Algorithm:
 ### Step 1:
+
   Start
 ### Step 2: 
   Include the standard input-output library: #include<stdio.h>.
