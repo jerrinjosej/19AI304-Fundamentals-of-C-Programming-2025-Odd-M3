@@ -33,7 +33,7 @@ To formulate a C program to convert a decimal number into its binary equivalent 
 
 int main() {
     int num, rem, i = 0, k;
-    int binary[32];  // Enough to store binary digits of a 32-bit integer
+    int binary[32];  
 
     // Step 4: Read decimal number
     printf("Enter a decimal number: ");
@@ -47,10 +47,10 @@ int main() {
 
     // Step 6: Conversion loop
     while (num > 0) {
-        rem = num % 2;          // remainder when divided by 2
-        binary[i] = rem;        // store remainder
-        i++;                    // move to next index
-        num = num / 2;          // update number
+        rem = num % 2;          
+        binary[i] = rem;        
+        i++;                    
+        num = num / 2;          
     }
 
     // Step 7: Display binary digits in reverse
@@ -113,13 +113,13 @@ int main() {
     int min, max, minCol;
     int found = 0;
 
-    // Step 4: Read order of matrix
+    
     printf("Enter the order of the square matrix: ");
     scanf("%d", &m);
 
     int a[m][m];
 
-    // Step 5: Read matrix elements
+   
     printf("Enter the elements of the matrix:\n");
     for (i = 0; i < m; i++) {
         for (j = 0; j < m; j++) {
@@ -136,13 +136,13 @@ int main() {
         printf("\n");
     }
 
-    // Step 7: Check each row
+    
     for (i = 0; i < m; i++) {
         // Step 7.1: Assume first element is min
         min = a[i][0];
         minCol = 0;
 
-        // Step 7.2: Find row minimum
+        
         for (j = 1; j < m; j++) {
             if (a[i][j] < min) {
                 min = a[i][j];
@@ -160,7 +160,7 @@ int main() {
             }
         }
 
-        // Step 8: Check saddle point condition
+        
         if (min == max) {
             printf("\nSaddle point found: %d at position (%d, %d)\n", 
                    min, i, minCol);
@@ -216,31 +216,19 @@ Thus, the program was implemented and executed successfully, and the required ou
 #include <stdio.h>
 
 int main() {
-    char s[100], d[100];   // Step 3: Arrays for input and reversed string
+    char s[100], d[100]; 
     int i, j, len = 0;
-
-    // Step 4: Read string from user
     printf("Enter a string: ");
     scanf("%[^\n]s", s);
-
-    // Step 5: Find length of string
     while (s[len] != '\0') {
         len++;
     }
-
-    // Step 6: Initialize counter j
     j = 0;
-
-    // Step 7: Copy characters in reverse order
     for (i = len - 1; i >= 0; i--) {
         d[j] = s[i];
         j++;
     }
-
-    // Step 8: Terminate reversed string
     d[j] = '\0';
-
-    // Step 9: Print reversed string
     printf("Reversed string: %s\n", d);
 
     return 0;
@@ -288,8 +276,8 @@ Thus, the program was implemented and executed successfully, and the required ou
 #include <string.h>
 
 int main() {
-    char s[100];                 // Step 3: Input string
-    int visited[256] = {0};      // Step 3: Track visited characters
+    char s[100];                 
+    int visited[256] = {0};      
     int i, j, n, count;
 
     // Step 4: Read string
@@ -301,7 +289,7 @@ int main() {
 
     // Step 6: Process each character
     for (i = 0; i < n; i++) {
-        if (visited[(unsigned char)s[i]] == 0) {  // Not yet counted
+        if (visited[(unsigned char)s[i]] == 0) { 
             count = 0;
             for (j = 0; j < n; j++) {
                 if (s[j] == s[i]) {
@@ -309,7 +297,7 @@ int main() {
                 }
             }
             printf("Character '%c' occurs %d times\n", s[i], count);
-            visited[(unsigned char)s[i]] = 1;     // Mark as counted
+            visited[(unsigned char)s[i]] = 1;     
         }
     }
 
@@ -358,37 +346,29 @@ Thus, the program was implemented and executed successfully, and the required ou
 #include <string.h>
 
 int main() {
-    char str[200], words[50][50];   // Step 3: Input string and word storage
+    char str[200], words[50][50];   
     int i = 0, j = 0, k = 0, n = 0;
-
-    // Step 4: Read input string
     printf("Enter a string: ");
     scanf("%[^\n]s", str);
-
-    // Step 5: Split string into words
     for (i = 0; str[i] != '\0'; i++) {
         if (str[i] == ' ') {
-            words[n][j] = '\0';  // terminate current word
-            n++;                 // move to next word
+            words[n][j] = '\0';  
+            n++;                 
             j = 0;
         } else {
             words[n][j++] = str[i];
         }
     }
-    words[n][j] = '\0';  // terminate last word
-    n++;                 // total number of words
-
-    // Step 6: Detect duplicates
+    words[n][j] = '\0';  
+    n++;                 
     for (i = 0; i < n; i++) {
-        if (words[i][0] == '\0') continue; // already marked duplicate
+        if (words[i][0] == '\0') continue; 
         for (j = i + 1; j < n; j++) {
             if (strcmp(words[i], words[j]) == 0) {
-                words[j][0] = '\0'; // mark duplicate
+                words[j][0] = '\0'; 
             }
         }
     }
-
-    // Step 7: Print unique words
     printf("\nString with unique words:\n");
     for (i = 0; i < n; i++) {
         if (words[i][0] != '\0') {
